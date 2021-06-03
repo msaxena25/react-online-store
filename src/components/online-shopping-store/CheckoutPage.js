@@ -76,7 +76,7 @@ const CheckoutPage = (props) => {
                               </div>
                               <div className='display-inline-flex'>
                                 Quantity:
-                                {showQuantityInputs[item.name] ? (
+                                {showQuantityInputs[item.id] ? (
                                   <div className='display-inline-flex pad-left-10'>
                                     <Input
                                       type='number'
@@ -102,7 +102,7 @@ const CheckoutPage = (props) => {
                             <Col>
                               Total Item Price:{' '}
                               <span>
-                                {item.quantity} * {item.price} = {item.quantity * item.price}
+                                {item.quantity} * {item.price} = ${item.quantity * item.price}
                               </span>
                             </Col>
                           </Row>

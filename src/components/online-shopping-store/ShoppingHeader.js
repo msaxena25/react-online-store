@@ -18,7 +18,7 @@ const ShoppingHeader = (props) => {
     <div>
       <Navbar className='navbar-header' light expand='md'>
         <NavbarBrand className='txt-color-white'>
-          Online Mobile Shop{' '}
+          Online Shop{' '}
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -27,7 +27,7 @@ const ShoppingHeader = (props) => {
               <NavLink className='txt-color-white'>Category</NavLink>
             </NavItem>
             <NavItem style={{ width: '30rem' }}>
-              <Input type='search' name='search' id='exampleSearch' placeholder='Search Mobile' />
+              <Input type='search' name='search' id='exampleSearch' placeholder='Search Products' />
             </NavItem>
             <NavItem style={{ marginLeft: '2px' }}>
               <Button color='warning'>Search</Button>

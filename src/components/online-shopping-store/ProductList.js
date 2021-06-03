@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Button, CardTitle, CardText, Row, Col, Input } from 'reactstrap';
+import { Card, Button, CardTitle, CardText, Row, Col, Input, CardImg } from 'reactstrap';
 import { ADD_TO_CART, UPDATE_QUANTITY } from './../../redux/product-action-types';
 
 const ProductList = (props) => {
@@ -29,7 +29,7 @@ const ProductList = (props) => {
    * dispatch ADD_TO_CART to adding item in redux state
    */
   const onAddToCartClick = (product) => {
-    const item = { ...product, quantity: productQuantities[product.name] ? productQuantities[product.name] : 1 };
+    const item = { ...product, quantity: productQuantities[product.id] ? productQuantities[product.id] : 1 };
     dispatch({ type: ADD_TO_CART, payload: item });
   };
 
@@ -39,23 +39,23 @@ const ProductList = (props) => {
    */
   const onQuantityChange = (e, product) => {
     const p = { ...product, quantity: Number(e.target.value) };
-    const findItem = cartProducts.find((item) => item.name === product.name);
+    const findItem = cartProducts.find((item) => item.id === product.id);
     if (findItem) {
       dispatch({ type: UPDATE_QUANTITY, payload: p });
     } else {
-      updateQuantity(product.name, Number(e.target.value));
+      updateQuantity(product.id, Number(e.target.value));
     }
   };
 
   // update quantity value in local object productQuantities
-  const updateQuantity = (productName, value) => {
+  const updateQuantity = (productId, value) => {
     const pq = { ...productQuantities };
-    pq[productName] = value;
+    pq[productId] = value;
     setProductQuantities(pq);
   };
 
   const addToCartButton = (product) => {
-    return cartProducts.find((item) => item.name === product.name) ? (
+    return cartProducts.find((item) => item.id === product.id) ? (
       <Button color='success'>Added</Button>
     ) : (
       <Button color='warning' onClick={() => onAddToCartClick(product)}>
@@ -68,30 +68,31 @@ const ProductList = (props) => {
    * Get product quantity from redux state cartProducts if item is in cart.
    * Get quantity from local variable productQuantities if item is not in cart.
    */
-  const getQuantValue = (name) => {
-    const findItem = cartProducts.find((item) => item.name === name);
-    return findItem ? findItem.quantity : productQuantities[name] ? productQuantities[name] : '';
+  const getQuantValue = (productId) => {
+    const findItem = cartProducts.find((item) => item.id === productId);
+    return findItem ? findItem.quantity : productQuantities[productId] ? productQuantities[productId] : '';
   };
 
   return (
     <Row>
       {items.map((product, index) => {
         return (
-          <Col key={index} sm='3'>
+          <Col key={index} sm='4'>
             <Card body className='product-item-card'>
-              <CardTitle tag='h5'> {product.name}</CardTitle>
-              <CardText className='price'>₹ {product.price}</CardText>
+              <CardImg top width='50%' className="product-img"   src={product.image} alt='Card image cap' />
+              <CardTitle tag='h5'> {product.title}</CardTitle>
+              <CardText className='price'>$ {product.price}</CardText>
               <CardText style={styles.qty}>
                 <span>Qty: </span>
                 <Input
-                  value={getQuantValue(product.name)}
+                  value={getQuantValue(product.id)}
                   style={styles.qtyField}
                   type='number'
                   min='1'
                   onChange={($event) => onQuantityChange($event, product)}
                 />
               </CardText>
-              <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+              {/* <CardText>{product.description}</CardText> */}
               {addToCartButton(product)}
             </Card>
           </Col>

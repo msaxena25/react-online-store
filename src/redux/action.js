@@ -1,9 +1,15 @@
-import { ADD_TO_CART, GET_PRODUCT_LIST, UPDATE_QUANTITY } from './product-action-types';
+import {
+  ADD_TO_CART,
+  GET_PRODUCT_LIST,
+  GET_PRODUCT_REQUEST_FAILURE,
+  GET_PRODUCT_REQUEST_SUCCESS,
+  UPDATE_QUANTITY,
+} from './product-action-types';
 
 const productApiURL = 'https://fakestoreapi.com/products';
 export function fetchProducts() {
+   
   return (dispatch) => {
-    dispatch(getProducts());
     return fetch(productApiURL)
       .then(handleErrors)
       .then((res) => res.json())
@@ -14,6 +20,21 @@ export function fetchProducts() {
       .catch((error) => dispatch(fetchProductsFailure(error)));
   };
 }
+
+const fetchProductsFailure = (error) => {
+  return {
+    type: GET_PRODUCT_REQUEST_FAILURE,
+    payload: error,
+  };
+};
+
+const fetchProductsSuccess = (data) => {
+  return {
+    type: GET_PRODUCT_REQUEST_SUCCESS,
+    payload: data,
+  };
+};
+
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {
   if (!response.ok) {
@@ -35,8 +56,8 @@ export const addToCart = (product) => {
 };
 
 export const updateQuantity = (product) => {
-    return {
-        type: UPDATE_QUANTITY,
-        payload: product
-    }
-}
+  return {
+    type: UPDATE_QUANTITY,
+    payload: product,
+  };
+};

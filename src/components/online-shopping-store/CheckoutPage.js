@@ -26,11 +26,11 @@ const CheckoutPage = (props) => {
   };
 
   const onRemove = (e, item) => {
-    dispatch({ type: REMOVE_PRODUCT, payload: item.name });
+    dispatch({ type: REMOVE_PRODUCT, payload: item.id });
   };
 
   const showQuantityInputField = (item, isShow) => {
-    setShowQuantityInputs({ [item.name]: isShow });
+    setShowQuantityInputs({ [item.id]: isShow });
   };
 
   const onQuantityChange = (e, product) => {
@@ -39,7 +39,7 @@ const CheckoutPage = (props) => {
   };
 
   return (
-    <>
+    <div style={{padding: '18px'}}>
       <Row>
         <Col sm={10}>
           <h4>Review Your Order</h4>
@@ -67,12 +67,12 @@ const CheckoutPage = (props) => {
                   return (
                     <div key={index}>
                       <div>
-                        <h6>{item.name}</h6>
+                        <h6>{item.title}</h6>
                         <div>
                           <Row>
                             <Col>
                               <div>
-                                Price: <span className='price'>₹ {item.price} </span>
+                                Price: <span className='price'>$ {item.price} </span>
                               </div>
                               <div className='display-inline-flex'>
                                 Quantity:
@@ -107,7 +107,7 @@ const CheckoutPage = (props) => {
                             </Col>
                           </Row>
                         </div>
-                        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p>{item.description}</p>
                         <Button color="warning" onClick={($event) => onRemove($event, item)}>Remove</Button>
                       </div>
                       <hr />
@@ -140,7 +140,7 @@ const CheckoutPage = (props) => {
         payment. Your contract to purchase an item will not be complete until we receive your electronic payment and dispatch your item. If
         you choose to pay using Pay on Delivery (POD), you can pay using cash/card/net banking when you receive your item.
       </div>
-    </>
+    </div>
   );
 };
 

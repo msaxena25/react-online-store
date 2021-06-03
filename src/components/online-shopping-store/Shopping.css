@@ -24,6 +24,13 @@
 .product-item-card {
   margin: 10px;
   box-shadow: rgb(238, 234, 234) 1px 1px;
+  height: 28rem;
+}
+
+.product-img {
+   width: 50%;
+   height: 50%;
+    margin: auto; 
 }
 
 .badge {

@@ -5,14 +5,12 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } f
 import { Input, Button } from 'reactstrap';
 
 const ShoppingHeader = (props) => {
-  console.log('header', props);
   const [isOpen, setIsOpen] = useState(false);
   const totalAddedProductsInCart = useSelector((state) => state.products.cartProducts.length);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const onClickCart = () => {
-    console.log('click', props);
     props.history.push('/productcheckout')
   };
 

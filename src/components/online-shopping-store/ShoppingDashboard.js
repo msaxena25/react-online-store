@@ -5,7 +5,6 @@ import './Shopping.css';
 import { useSelector } from 'react-redux';
 
 const ShoppingDashboard = (props) => {
-console.log('props :', props);
   const products = useSelector((state) => state.products.productAllItems);
   return (
     <>

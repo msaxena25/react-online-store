@@ -10,7 +10,6 @@ const ProductList = (props) => {
   const [productQuantities, setProductQuantities] = useState({});
 
   const cartProducts = useSelector((state) => state.products.cartProducts);
-  console.log('cartProducts :', cartProducts);
 
   const dispatch = useDispatch();
 

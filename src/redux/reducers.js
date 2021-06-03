@@ -42,7 +42,6 @@ const updateQuantityReducer = (state, action) => {
   const s = getState(state);
   if(s.cartProducts.length) {
     const index = s.cartProducts.findIndex(item => item.name === action.payload.name);
-    console.log('s.cartProducts[index] :', s.cartProducts[index]);
     if(index > -1) {
       s.cartProducts[index].quantity =  action.payload.quantity;
     

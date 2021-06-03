@@ -5,7 +5,6 @@ import RoutingPath from './RoutingPath';
 import ShoppingDashboard from './online-shopping-store/ShoppingDashboard';
 
 const Routing = (props) => {
-  console.log('props :', props);
   const styles = {
     contentDiv: {
       display: 'flex',

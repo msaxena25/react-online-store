@@ -6,7 +6,6 @@ const OrderSumSummary = (props) => {
   const [totalOrderSum, setTotalOrderSum] = useState('');
 
   useEffect(() => {
-    console.log(props);
     const sum = Number(props.totalItemPrice) + Number(deliveryCharge);
     setTotalOrderSum(sum.toFixed(2));
   }, [props]);

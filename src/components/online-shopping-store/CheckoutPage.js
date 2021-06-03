@@ -13,7 +13,6 @@ const CheckoutPage = (props) => {
 
   useEffect(() => {
     const priceArr = productsInCart.map((item) => item.price * item.quantity);
-    console.log('priceArr :', priceArr);
     if (priceArr.length) {
       const totalPrice = priceArr.reduce((sum, value) => sum + value);
       setTotalItemPrice(totalPrice.toFixed(2));
@@ -23,7 +22,7 @@ const CheckoutPage = (props) => {
   const dispatch = useDispatch();
 
   const goBackToProductPage = () => {
-    props.history.push('/shopping');
+    props.history.push('/');
   };
 
   const onRemove = (e, item) => {

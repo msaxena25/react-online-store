@@ -1,0 +1,85 @@
+.navbar-header {
+  background: #18212b;
+  color: white;
+}
+
+.txt-color-white {
+  color: white !important;
+}
+
+.bag {
+  color: black;
+  font-weight: 800;
+  margin-left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 17px;
+  color: rgba(245, 18, 18, 0.884);
+}
+
+.product-item-card {
+  margin: 10px;
+  box-shadow: rgb(238, 234, 234) 1px 1px;
+}
+
+.badge {
+  color: white;
+  border-radius: 100%;
+  background: red;
+  font-size: 18px;
+}
+
+.quantity {
+  font-weight: bold;
+}
+
+.quant-field {
+  width: 25%;
+}
+
+.order-summary-row {
+  color: #b12704;
+  font-size: 16px;
+  font-weight: 600;
+}
+.place-order-btn {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b); 
+  border-color: #cba957 #bf942a #aa8326;
+  background: #f0c14b;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.est-delivery {
+  color: #e47911;
+}
+.help-text {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.info-text {
+  font-size: 10px;
+  color: gray;
+  margin-top: 10px;
+} 
+
+.link {
+ color: #007bff;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.pad-left-10 {
+  padding-left: 10px;;
+}

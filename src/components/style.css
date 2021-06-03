@@ -1,0 +1,10 @@
+/* FormikForm.jsx */
+
+Label:first-child::after {
+  content: "*";
+  color: red;
+}
+
+.qrCode canvas {
+  border-radius: 100%;
+}

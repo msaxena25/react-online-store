@@ -5,6 +5,7 @@ import {
   GET_PRODUCT_REQUEST_FAILURE,
   GET_PRODUCT_REQUEST_SUCCESS,
   REMOVE_PRODUCT,
+  SEARCH_PRODUCT,
   UPDATE_QUANTITY,
 } from './product-action-types';
 
@@ -45,9 +46,19 @@ const productReducer = (state = initialState, action) => {
       return removeProductReducer(state, action);
     case UPDATE_QUANTITY:
       return updateQuantityReducer(state, action);
+    case SEARCH_PRODUCT:
+      return searchReducer(state, action);
     default:
       return state;
   }
+};
+
+const searchReducer = (state, action) => {
+  const s = getState(state);
+  console.log('s :', s);
+  s.productAllItems = s.productAllItems.filter((item) => item.title.toLowerCase().trim()
+  .indexOf(action.payload.toLowerCase().trim()) > -1);
+  return s;
 };
 
 const removeProductReducer = (state, action) => {
@@ -73,6 +84,7 @@ const updateQuantityReducer = (state, action) => {
 const getState = (state) => {
   return {
     ...state,
+    productAllItems: [...state.productAllItems],
     cartProducts: [...state.cartProducts],
   };
 };

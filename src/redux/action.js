@@ -3,12 +3,12 @@ import {
   GET_PRODUCT_LIST,
   GET_PRODUCT_REQUEST_FAILURE,
   GET_PRODUCT_REQUEST_SUCCESS,
+  SEARCH_PRODUCT,
   UPDATE_QUANTITY,
 } from './product-action-types';
 
 const productApiURL = 'https://fakestoreapi.com/products';
 export function fetchProducts() {
-   
   return (dispatch) => {
     return fetch(productApiURL)
       .then(handleErrors)
@@ -61,3 +61,13 @@ export const updateQuantity = (product) => {
     payload: product,
   };
 };
+
+export const searchProduct = (searchInput) => {
+  return {
+    type: SEARCH_PRODUCT,
+    payload: searchInput,
+  };
+};
+
+
+

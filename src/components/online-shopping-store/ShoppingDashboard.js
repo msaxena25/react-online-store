@@ -7,6 +7,7 @@ import { fetchProducts } from '../../redux/action';
 
 const ShoppingDashboard = (props) => {
   const products = useSelector((state) => state.products.productAllItems);
+  console.log('products :', products);
   const dispatch = useDispatch();
 
   useEffect(() => {

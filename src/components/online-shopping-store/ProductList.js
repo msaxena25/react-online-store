@@ -4,7 +4,7 @@ import { Card, Button, CardTitle, CardText, Row, Col, Input, CardImg } from 'rea
 import { ADD_TO_CART, UPDATE_QUANTITY } from './../../redux/product-action-types';
 
 const ProductList = (props) => {
-  const [items, setItems] = useState(props.products);
+console.log('props :', props);
 
   // local state to save quantity of those product that are not added still in carts
   const [productQuantities, setProductQuantities] = useState({});
@@ -75,7 +75,7 @@ const ProductList = (props) => {
 
   return (
     <Row>
-      {items.map((product, index) => {
+      {props.products.map((product, index) => {
         return (
           <Col key={index} sm='4'>
             <Card body className='product-item-card'>
